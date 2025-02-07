@@ -1,9 +1,11 @@
 require('dotenv').config();
+const cors = require('cors');
 const express = require('express');
 const docusign = require('docusign-esign');
 const fs = require('fs');
 
 const app = express();
+app.use(cors({}));
 app.use(express.json());
 
 // ✅ Authenticate with JWT
