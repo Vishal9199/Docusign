@@ -5,8 +5,10 @@ const docusign = require('docusign-esign');
 const fs = require('fs');
 
 const app = express();
+app.use(express.json({ limit: '150mb' }))
+app.use(express.urlencoded({ extended: true, limit: '150mb' }))
 app.use(cors({}));
-app.use(express.json());
+// app.use(express.json());
 
 // ✅ Authenticate with JWT
 const authenticateWithJWT = async () => {
