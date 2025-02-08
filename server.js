@@ -48,6 +48,8 @@ app.post('/create-envelope', async (req, res) => {
     console.log('here')
     const envelopesApi = new docusign.EnvelopesApi(apiClient);
     const { documentBase64, email, name } = req.body;
+    console.log("==>", req.body.email);
+    console.log("==>", req.body.name);
 
     const envelopeBody = {
       documents: [
@@ -60,7 +62,7 @@ app.post('/create-envelope', async (req, res) => {
       ],
       emailSubject: "Please sign this document",
       recipients: {
-        signers: [{ email, name, recipientId: "1" }]
+        signers: [{ email: "vishalkrmahatha362000@gmail.com", name: "Vishal Kumar", recipientId: "1" }]
       },
       status: "sent"
     };
